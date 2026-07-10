@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.all('*', async (req, res) => {
+app.use(async (req, res) => {
   const targetUrl = `https://api.binance.com${req.originalUrl}`;
   console.log(`[Proxy] ${req.method} -> ${targetUrl}`);
   
